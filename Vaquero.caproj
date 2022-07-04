@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Vaquero</name>
+    <description>Juego Vaquero como proyecto de clase.</description>
+    <version>1.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>3k8y8jenijj4j</unique-id>
+    <saved-with-version>28000</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="progressbar" version="1">Progress bar</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
+        <behavior author="Scirra" id="Turret" version="1">Turret</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>640</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Layout 1</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Hide address bar">No</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use iOS retina display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Vaquero" sid="951397608228542">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Vida" sid="215328788506799" type="number" />
+                <instance-variable name="Disparo" sid="236609463893256" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="507625632175246">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="453162819051679">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="486279130206702">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="220040966675617" speed="5">
+                    <frame duration="1" hotspotX="0.515152" hotspotY="0.507937">
+                        <image-point name="ShootPoint" x="1.15152" y="0.507937" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.977273" y="0.5" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Fondo" sid="877147957783048">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Raton" sid="791486311000524">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Bala" sid="426566618741246">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="374716377138860">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="506765934660657">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="121594300520637" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Texto" sid="417826313376297">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Enemigo" sid="106609849427336">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Vida" sid="258074214163382" type="number" />
+                <instance-variable name="Disparo" sid="633199666713435" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Turret" sid="313109747784879">
+                    <behavior id="Turret" />
+                </behavior-type>
+                <behavior-type name="Pathfinding" sid="138363360483826">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="459117472876841" speed="5">
+                    <frame duration="1" hotspotX="0.515152" hotspotY="0.507937" original-source="C:\Users\seba_\Desktop\cosas\vaquero.png">
+                        <collision-poly>
+                            <point x="0.242424" y="0.126984" />
+                            <point x="0.757576" y="0.126984" />
+                            <point x="0.606061" y="0.492063" />
+                            <point x="0.69697" y="0.84127" />
+                            <point x="0.484848" y="0.857143" />
+                            <point x="0.121212" y="0.936508" />
+                            <point x="0.030303" y="0.492063" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Teclado" sid="928251113372896">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Vaquero2" sid="264245888022575">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Vida" sid="518293392118748" type="number" />
+                <instance-variable name="Disparo" sid="616094394784378" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="569104509332693">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="720450107711702">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="486763093883445">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="979164230952651" speed="5">
+                    <frame duration="1" hotspotX="0.515152" hotspotY="0.507937">
+                        <image-point name="ShootPoint" x="1.15152" y="0.507937" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.977273" y="0.5" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Bala2" sid="546158116172963">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="874325717667888">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="954574205241448">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="509733252795289" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Texto2" sid="282608803987994">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Cactus" sid="929264245902210">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="966110758293924">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="610492027103233" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Muro" sid="608418611286446">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="635432108388725">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="996442519979220" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mejora_de_vida" sid="252656916078922">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="330324766653436" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mejora_de_arma" sid="147724155563939">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="287971158452175" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Señora" sid="812131358203121">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Vida" sid="430349186810328" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="280640045260002" speed="5">
+                    <frame duration="1" hotspotX="0.515152" hotspotY="0.507937" original-source="C:\Users\seba_\Desktop\cosas\enemigo.png">
+                        <collision-poly>
+                            <point x="0.242424" y="0.126984" />
+                            <point x="0.757576" y="0.126984" />
+                            <point x="0.606061" y="0.492063" />
+                            <point x="0.69697" y="0.84127" />
+                            <point x="0.484848" y="0.857143" />
+                            <point x="0.121212" y="0.936508" />
+                            <point x="0.030303" y="0.492063" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Inicio" sid="838179981038656">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="Puerta" sid="336797367230582">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="226586548654812">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="156351241092775" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Salir" sid="510463483471904">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="Jugador2" sid="588599346126500">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="ProgresoEnemigos" sid="861465907249702">
+            <plugin id="progressbar" />
+        </object-type>
+        <object-type global="1" name="Contador" sid="828288639673643">
+            <plugin id="Dictionary" />
+            <instance-variables>
+                <instance-variable name="Contador1" sid="503358075311736" type="number" />
+                <instance-variable name="Contador2" sid="877272718272930" type="number" />
+            </instance-variables>
+        </object-type>
+        <object-type name="ProgresoVida1" sid="597971765832990">
+            <plugin id="progressbar" />
+        </object-type>
+        <object-type name="VidaJugador1" sid="171554061104875">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="ProgresoVida2" sid="514682524076622">
+            <plugin id="progressbar" />
+        </object-type>
+        <object-type name="VidaJugador2" sid="942675553665000">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="ProgresoCantEnemigos" sid="865124326812605">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="NumeroEtapa" sid="409024580086961">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="NumeroEtapa2" sid="507069489397049">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Browser" sid="444772826190445">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="NumJugador1" sid="813799447689311">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="NumJugador2" sid="900934694857331">
+            <plugin id="Text" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Raton" uid="16" />
+        <global-instance type="Teclado" uid="17" />
+        <global-instance type="Browser" uid="69" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

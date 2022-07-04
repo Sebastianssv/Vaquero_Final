@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <comment>El jugador apunta siempre al raton.</comment>
+        <event-block sid="693206067927827">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="513605689909373" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="773536940800556" type="Vaquero">
+                    <param id="0" name="X">Raton.X(&quot;Game&quot;)</param>
+                    <param id="1" name="Y">Raton.Y(&quot;Game&quot;)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Disparo del jugador al hacer click izquierdo. </comment>
+        <event-block sid="616158470865801">
+            <conditions>
+                <condition id="2" name="Mouse button is down" sid="172199138640450" type="Raton">
+                    <param id="0" name="Mouse button">0</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="735348407163874" type="System">
+                    <param id="0" name="Interval (seconds)">Vaquero.Disparo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="192404814088600" type="Vaquero">
+                    <param id="0" name="Object">Bala</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">&quot;ShootPoint&quot;</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="696040788796783" type="Bala">
+                    <param id="0" name="Degrees">random(-4, 4)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Si el jugador es golpeado, pierde 1 de vida. Si se queda sin vida, es eliminado.</comment>
+        <event-block sid="171259220925865">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="280605599064279" type="Bala2">
+                    <param id="0" name="Object">Vaquero</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="954440995560567" type="Vaquero">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="778122522851356" type="Bala2" />
+                <action id="3" name="Set progress" sid="726471445935704" type="ProgresoVida1">
+                    <param id="0" name="Value">Vaquero.Vida</param>
+                </action>
+                <action id="0" name="Set text" sid="930360130765386" type="NumJugador1">
+                    <param id="0" name="Text">Vaquero.Vida</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="456281309424409">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="750080537486201" type="Vaquero">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="224622608105823" type="Vaquero" />
+            </actions>
+        </event-block>
+        <comment>El jugador 2 apunta siempre hacia la ultima direccion de las teclas presionadas.</comment>
+        <event-block sid="190053309621382">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="340521411332512" type="Teclado">
+                    <param id="0" name="Key">38</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="645002325251708" type="Teclado">
+                    <param id="0" name="Key">40</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="710417886454850" type="Teclado">
+                    <param id="0" name="Key">37</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="127886678776625" type="Teclado">
+                    <param id="0" name="Key">39</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="155727357408616" type="Vaquero2">
+                    <param id="0" name="X">Vaquero2.8Direction.MovingAngle</param>
+                    <param id="1" name="Y">Vaquero2.8Direction.MovingAngle</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Disparo del jugador 2 al hacer click derecho.</comment>
+        <event-block sid="282316703733281">
+            <conditions>
+                <condition id="2" name="Key is down" sid="908327266674253" type="Teclado">
+                    <param id="0" name="Key">32</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="425715228364934" type="System">
+                    <param id="0" name="Interval (seconds)">Vaquero2.Disparo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="779050283015478" type="Vaquero2">
+                    <param id="0" name="Object">Bala</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">&quot;ShootPoint&quot;</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="480141315753995" type="Bala">
+                    <param id="0" name="Degrees">random(-4, 4)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Si el jugador 2 es golpeado, pierde 1 de vida. Si se queda sin vida, es eliminado.</comment>
+        <event-block sid="482190499846516">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="335178263574224" type="Bala2">
+                    <param id="0" name="Object">Vaquero2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="737288610733986" type="Vaquero2">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="914620194079310" type="Bala2" />
+                <action id="3" name="Set progress" sid="150453684491009" type="ProgresoVida2">
+                    <param id="0" name="Value">Vaquero2.Vida</param>
+                </action>
+                <action id="0" name="Set text" sid="187465962108924" type="NumJugador2">
+                    <param id="0" name="Text">Vaquero2.Vida</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="439207217267338">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="141369181178507" type="Vaquero2">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="695156295741262" type="Vaquero2" />
+            </actions>
+        </event-block>
+        <comment>Movimiento del enemigo.</comment>
+        <event-block sid="517057747628283">
+            <conditions>
+                <condition behavior="Turret" id="0" name="Has target" sid="243425637052509" type="Enemigo" />
+                <condition id="-1" name="Every tick" sid="798017693764382" type="System" />
+            </conditions>
+            <actions>
+                <action id="-17" name="Move forward" sid="838254970327331" type="Enemigo">
+                    <param id="0" name="Distance">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Enemigo dispara al jugador.</comment>
+        <event-block sid="920903952319487">
+            <conditions>
+                <condition id="-3" name="Is on-screen" sid="450808900647996" type="Enemigo" />
+                <condition id="-6" name="Every X seconds" sid="404464259720604" type="System">
+                    <param id="0" name="Interval (seconds)">Enemigo.Disparo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Turret" id="0" name="Acquire target" sid="232715112422637" type="Enemigo">
+                    <param id="0" name="Target">Vaquero</param>
+                </action>
+                <action behavior="Turret" id="0" name="Acquire target" sid="419625824429852" type="Enemigo">
+                    <param id="0" name="Target">Vaquero2</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="940012598014072" type="Enemigo">
+                    <param id="0" name="Object">Bala2</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="Image point">&quot;ShootPoint&quot;</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="505206011265230" type="Bala">
+                    <param id="0" name="Degrees">random(-4, 4)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Si un enemigo es golpeado, pierde 1 de vida. Si se queda sin vida, es eliminado.</comment>
+        <event-block sid="995930287300512">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="629801914360830" type="Bala">
+                    <param id="0" name="Object">Enemigo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="736177191555729" type="Enemigo">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="948548249842955" type="Bala" />
+            </actions>
+        </event-block>
+        <event-block sid="773286979778291">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="364097873554986" type="Enemigo">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="664086442308817" type="Enemigo" />
+            </actions>
+        </event-block>
+        <comment>Mejoras de personaje.</comment>
+        <event-block sid="330220284524325">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="733824840145286" type="Vaquero">
+                    <param id="0" name="Object">Mejora_de_vida</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="696208057196712" type="Mejora_de_vida" />
+                <action id="-11" name="Add to" sid="262529561013142" type="Vaquero">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="4" name="Set maximum" sid="880533444615623" type="ProgresoVida1">
+                    <param id="0" name="Maximum">Vaquero.Vida</param>
+                </action>
+                <action id="3" name="Set progress" sid="616369704001048" type="ProgresoVida1">
+                    <param id="0" name="Value">Vaquero.Vida</param>
+                </action>
+                <action id="0" name="Set text" sid="175108065303156" type="NumJugador1">
+                    <param id="0" name="Text">Vaquero.Vida</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="339252361317533">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="301753699093988" type="Vaquero2">
+                    <param id="0" name="Object">Mejora_de_vida</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="688669296926941" type="Mejora_de_vida" />
+                <action id="-11" name="Add to" sid="387731418609029" type="Vaquero2">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="4" name="Set maximum" sid="924015024243535" type="ProgresoVida2">
+                    <param id="0" name="Maximum">Vaquero2.Vida</param>
+                </action>
+                <action id="3" name="Set progress" sid="929803010563441" type="ProgresoVida2">
+                    <param id="0" name="Value">Vaquero2.Vida</param>
+                </action>
+                <action id="0" name="Set text" sid="930240046474004" type="NumJugador2">
+                    <param id="0" name="Text">Vaquero2.Vida</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="989524746402366">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="568609351778413" type="Vaquero">
+                    <param id="0" name="Object">Mejora_de_arma</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="380833826731792" type="Mejora_de_arma" />
+                <action id="-12" name="Subtract from" sid="249357759627330" type="Vaquero">
+                    <param id="0" name="Instance variable">Disparo</param>
+                    <param id="1" name="Value">0.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="356909664384004">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="798204232406507" type="Vaquero2">
+                    <param id="0" name="Object">Mejora_de_arma</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="638639355828425" type="Mejora_de_arma" />
+                <action id="-12" name="Subtract from" sid="778498592595263" type="Vaquero2">
+                    <param id="0" name="Instance variable">Disparo</param>
+                    <param id="1" name="Value">0.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Movimiento con las teclas WASD.</comment>
+        <event-block sid="323397801220696">
+            <conditions>
+                <condition id="2" name="Key is down" sid="653471433361201" type="Teclado">
+                    <param id="0" name="Key">87</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="738145504528707" type="Vaquero">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="184719440310671">
+            <conditions>
+                <condition id="2" name="Key is down" sid="615389492081969" type="Teclado">
+                    <param id="0" name="Key">65</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="170800928328101" type="Vaquero">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="875422962320017">
+            <conditions>
+                <condition id="2" name="Key is down" sid="366381126485603" type="Teclado">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="363428092443620" type="Vaquero">
+                    <param id="0" name="Control">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="622886542341855">
+            <conditions>
+                <condition id="2" name="Key is down" sid="354031061335217" type="Teclado">
+                    <param id="0" name="Key">68</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="325240981297763" type="Vaquero">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Obstaculos.</comment>
+        <event-block sid="311273199395895">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="376776989664311" type="Bala">
+                    <param id="0" name="Object">Cactus</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="323742071396264" type="Bala" />
+            </actions>
+        </event-block>
+        <event-block sid="164832513493506">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="206112354051452" type="Bala">
+                    <param id="0" name="Object">Muro</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="584186459479094" type="Bala" />
+            </actions>
+        </event-block>
+        <event-block sid="471869033886228">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="313726700267582" type="Bala2">
+                    <param id="0" name="Object">Cactus</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="528930721911033" type="Bala2" />
+            </actions>
+        </event-block>
+        <event-block sid="329001906638020">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="473784284160781" type="Bala2">
+                    <param id="0" name="Object">Muro</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="856331956427525" type="Bala2" />
+            </actions>
+        </event-block>
+        <event-block sid="316312239164237">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="416092497809270" type="Bala">
+                    <param id="0" name="Object">Puerta</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="829002817807262" type="Bala" />
+            </actions>
+        </event-block>
+        <event-block sid="543927545232115">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="280747474507385" type="Bala2">
+                    <param id="0" name="Object">Puerta</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="808757976033126" type="Bala2" />
+            </actions>
+        </event-block>
+        <comment>Reinicio de la partida al morir.</comment>
+        <event-block sid="563867789716188">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="536060560123814" type="Vaquero" />
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="826272629948959" type="System" />
+                <action id="-10" name="Set value" sid="121329380572701" type="Contador">
+                    <param id="0" name="Instance variable">Contador1</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="637201443701014" type="Contador">
+                    <param id="0" name="Instance variable">Contador2</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Boton &quot;Inicio&quot; que comienza la partida.</comment>
+        <event-block sid="218402381452808">
+            <conditions>
+                <condition id="0" name="On clicked" sid="354007700021689" type="Inicio" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="199103868779364" type="Puerta" />
+                <action id="-9" name="Destroy" sid="829276044343852" type="Inicio" />
+                <action id="-9" name="Destroy" sid="293844084943031" type="Salir" />
+                <action behavior="Turret" id="5" name="Set enabled" sid="483058477581696" type="Enemigo">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="561009925510567" type="Jugador2" />
+            </actions>
+        </event-block>
+        <comment>Reinicio de la partida.</comment>
+        <event-block sid="882272529143799">
+            <conditions>
+                <condition id="3" name="On key released" sid="898529389564723" type="Teclado">
+                    <param id="0" name="Key">27</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="806033757893973" type="System" />
+                <action id="-10" name="Set value" sid="609992027698739" type="Contador">
+                    <param id="0" name="Instance variable">Contador1</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="109776636761348" type="Contador">
+                    <param id="0" name="Instance variable">Contador2</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Agregar jugador 2.</comment>
+        <event-block sid="195693518160679">
+            <conditions>
+                <condition id="0" name="On clicked" sid="930326025111697" type="Jugador2" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="258274683348684" type="System">
+                    <param id="0" name="Object to create">Vaquero2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">250</param>
+                    <param id="3" name="Y">200</param>
+                </action>
+                <action id="-9" name="Destroy" sid="523180710156763" type="Jugador2" />
+                <action id="-3" name="Create object" sid="208478064795743" type="System">
+                    <param id="0" name="Object to create">Texto2</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">6</param>
+                    <param id="3" name="Y">39</param>
+                </action>
+                <action id="-3" name="Create object" sid="601263551856686" type="System">
+                    <param id="0" name="Object to create">ProgresoVida2</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">440</param>
+                    <param id="3" name="Y">455</param>
+                </action>
+                <action id="-3" name="Create object" sid="370139036823679" type="System">
+                    <param id="0" name="Object to create">VidaJugador2</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">439</param>
+                    <param id="3" name="Y">423</param>
+                </action>
+                <action id="4" name="Set maximum" sid="392203951154094" type="ProgresoVida2">
+                    <param id="0" name="Maximum">Vaquero2.Vida</param>
+                </action>
+                <action id="3" name="Set progress" sid="198175153952122" type="ProgresoVida2">
+                    <param id="0" name="Value">Vaquero2.Vida</param>
+                </action>
+                <action id="-3" name="Create object" sid="650544473676444" type="System">
+                    <param id="0" name="Object to create">NumJugador2</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">605</param>
+                    <param id="3" name="Y">422</param>
+                </action>
+                <action id="0" name="Set text" sid="779329476480370" type="NumJugador2">
+                    <param id="0" name="Text">Vaquero2.Vida</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Instanciar jugador 2 para poder ser utilizado.</comment>
+        <event-block sid="558726063143925">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="207796239327375" type="System" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="434651973391192" type="Vaquero2">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="329747295723872" type="Vaquero2" />
+                <action id="-9" name="Destroy" sid="484450302025099" type="Texto2" />
+                <action id="-9" name="Destroy" sid="167353043098335" type="ProgresoVida2" />
+                <action id="-9" name="Destroy" sid="167714602941533" type="VidaJugador2" />
+                <action id="-9" name="Destroy" sid="726307252868689" type="NumJugador2" />
+            </actions>
+        </event-block>
+        <comment>Juego completado.</comment>
+        <event-block sid="733025065152840">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="566360503700810" type="System">
+                    <param id="0" name="First value">Enemigo.Count</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="609175270414591" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="388530990332592" type="System" />
+                <action id="-11" name="Add to" sid="279214852690505" type="Contador">
+                    <param id="0" name="Instance variable">Contador1</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-11" name="Add to" sid="389048804558724" type="Contador">
+                    <param id="0" name="Instance variable">Contador2</param>
+                    <param id="1" name="Value">0.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Progreso de enemigos matados.</comment>
+        <event-block sid="189400518716308">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="576710525960556" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set maximum" sid="813946600329298" type="ProgresoEnemigos">
+                    <param id="0" name="Maximum">Enemigo.Count</param>
+                </action>
+                <action id="3" name="Set progress" sid="123637585429562" type="ProgresoEnemigos">
+                    <param id="0" name="Value">Enemigo.Count</param>
+                </action>
+                <action id="0" name="Set text" sid="149321338074331" type="NumeroEtapa2">
+                    <param id="0" name="Text">Contador.Contador1</param>
+                </action>
+                <action id="-11" name="Add to" sid="827336787606586" type="Enemigo">
+                    <param id="0" name="Instance variable">Vida</param>
+                    <param id="1" name="Value">Contador.Contador1</param>
+                </action>
+                <action id="-12" name="Subtract from" sid="387189133048492" type="Enemigo">
+                    <param id="0" name="Instance variable">Disparo</param>
+                    <param id="1" name="Value">Contador.Contador2</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Avance del progreso de enemigos matados.</comment>
+        <event-block sid="763543974802131">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="330407293099533" type="Enemigo" />
+            </conditions>
+            <actions>
+                <action id="3" name="Set progress" sid="647589214569010" type="ProgresoEnemigos">
+                    <param id="0" name="Value">Enemigo.Count-1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="677397258827037">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="596604399687250" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set maximum" sid="687882310341227" type="ProgresoVida1">
+                    <param id="0" name="Maximum">Vaquero.Vida</param>
+                </action>
+                <action id="3" name="Set progress" sid="431174749549497" type="ProgresoVida1">
+                    <param id="0" name="Value">Vaquero.Vida</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Cerrar juego.</comment>
+        <event-block sid="225880144661593">
+            <conditions>
+                <condition id="0" name="On clicked" sid="498266299108241" type="Salir" />
+            </conditions>
+            <actions>
+                <action id="1" name="Close" sid="793171677326600" type="Browser" />
+            </actions>
+        </event-block>
+        <event-block sid="818981182759588">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="782280754985344" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="606962673893956" type="NumJugador1">
+                    <param id="0" name="Text">Vaquero.Vida</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
